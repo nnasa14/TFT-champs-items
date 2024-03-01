@@ -1,27 +1,40 @@
-require('dotenv').config();
+/* API urls */
+const champUrl = 'https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/tft-champion.json';
+const traitUrl = 'https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/tft-trait.json';
 
-document.addEventListning("DOMContentLoaded", function () {
-    const apiKey = process.env.API-KEY;
-    const championUrl = "https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/tft-champion.json";
-    const champContainer = document.getElementById('champ');
-    const button = document.getElementById('button');
+/* HTML containers */
+const traitContainer = document.getElementById('trait');
+const champContainer = document.getElementById('champ');
 
-    let getChampion = () => {
-        fetch(championUrl, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            }
+const button = document.getElementById('button');
+
+let getChamp = () => {
+    fetch(champUrl)
+        .then(response => response.json())
+        .then(data => {
+            const champNames = Object.values(data.data);
+            const randomIndex = Math.floor(Math.random() *champNames.length);
+            const champ = champNames[randomIndex];
+            champContainer.innerHTML = `${champ.name}`;
         })
-            .then(response => response.json())
-            .then(data => {
-                const champName = data.champ[0].name;
-                champContainer.textContext = `${champName}`;
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
+        .catch(error => console.error('Fetch error:', error));
+}
 
-    button.addEventListning("click", getChampion);
-    getChampion();
-    });
+let getTrait = () => {
+    fetch(traitUrl)
+        .then(response => response.json())
+        .then(data => {
+            const traits = Object.values(data.data);
+            const randomIndex = Math.floor(Math.random() *traits.length);
+            const trait = traits[randomIndex];
+            traitContainer.innerHTML = `Trait: ${trait.name}`;
+        })
+        .catch(error => console.error('Fetch error:', error));
+}
+
+button.addEventListener("click", function () {
+    getChamp();
+    getTrait();
+});
+getChamp();
+getTrait();

@@ -31,6 +31,10 @@ main {
     padding: 20px;
 }
 
+div {
+    color: bisque;
+}
+
 /* Parent divs */
 .carry {
     flex: 1;
@@ -49,7 +53,7 @@ main {
 }
 
 /* Child divs */
-.champ {
+#champ {
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -77,4 +81,12 @@ main {
     box-sizing: border-box;
     text-align: center;
     color: gray;
+    color: beige;
+}
+
+.trait {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 10px;
 }
