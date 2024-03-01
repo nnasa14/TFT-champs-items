@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: black;
 }
 
 header {
@@ -12,10 +13,16 @@ header {
     text-align: center;
 }
 
-nav {
-    background-color: #eee;
-    padding: 10px;
-    text-align: center;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid rgb(147, 175, 193);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.5;
 }
 
 main {
@@ -24,14 +31,7 @@ main {
     padding: 20px;
 }
 
-.items {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 0 10px;
-    box-sizing: border-box;
-}
-
+/* Parent divs */
 .carry {
     flex: 1;
     border: 1px solid #ccc;
@@ -40,10 +40,41 @@ main {
     box-sizing: border-box;
 }
 
-.team {
+.comp {
     flex: 1;
     border: 1px solid #ccc;
     padding: 20px;
     margin: 0 10px;
     box-sizing: border-box;
+}
+
+/* Child divs */
+.champ {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.items {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item {
+    max-width: 150px;
+    height: auto;
+}
+
+.team {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.team-champ {
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: gray;
 }
