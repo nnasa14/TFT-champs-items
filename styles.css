@@ -39,8 +39,7 @@ div {
 .carry {
     flex: 1;
     border: 1px solid #ccc;
-    padding: 20px;
-    margin: 0 10px;
+    margin: 10px;
     box-sizing: border-box;
 }
 
@@ -48,21 +47,27 @@ div {
     flex: 1;
     border: 1px solid #ccc;
     padding: 20px;
-    margin: 0 10px;
+    margin: 10px;
     box-sizing: border-box;
 }
 
 /* Child divs */
 #champ {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin-bottom: 10px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    color: rgb(144, 138, 131);
+    background-color: #2e383e;
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0 10px;
 }
 
-.items {
+#items-container {
     justify-content: space-between;
     width: 100%;
+    background-color: #3f474e;
 }
 
 .item {
