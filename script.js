@@ -11,7 +11,12 @@ const itemsContainer = document.getElementById('items-container');
 
 const button = document.getElementById('button');
 
-/* remove spaces and special chars */
+/* check if item name contains ints */
+function containsSpecialCharacters(str) {
+    return /\d|\W[^']/.test(str);
+}
+
+/* remove spaces and special chars and upper */
 let justChars = name => {
     const regex = /[^a-zA-Z]/g;
 
@@ -36,15 +41,20 @@ let getItem = () => {
     fetch(itemUrl)
         .then(response => response.json())
         .then(data => {
+            const allowedItems = ["Deathblade", "Guinsoo's Rageblade", "Infinity Edge", "Jeweled Gauntlet", "Rabadon's Deathcap", "Spear of Shojin", "Statikk Shiv", "Titan's Resolve", "Blue Buff"];
+            const images = 'items/';
             const items = Object.values(data.data);
-            const randomIndex = Math.floor(Math.random() *items.length);
-            const item = items[randomIndex]; 
-            const imageName = justChars(item.name);
-            const image = `https://cdn.metatft.com/file/metatft/items/tft_item_${imageName}.png`
-            itemsContainer.innerHTML += `${item.name} <br> <img src="${image}">`;
+            let item;
+            
+            do {
+                const randomIndex = Math.floor(Math.random() * items.length);
+                item = items[randomIndex];
+            } while (!allowedItems.includes(item.name));
+            const image = `${images}${item.name}.png`;
+            itemsContainer.innerHTML = `${item.name} <br> <img src="${image}">`;
         })
         .catch(error => console.error('Fetch error:', error));
-}
+} 
 
 let getTrait = () => {
     fetch(traitUrl)
@@ -61,7 +71,5 @@ let getTrait = () => {
 button.addEventListener("click", function () {
     getChamp();
     getTrait();
-    itemsContainer.innerHTML = '';
-    for (let i = 0; i < 3; i++) {
-        getItem();}
+    getItem();
     });
