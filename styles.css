@@ -35,23 +35,14 @@ div {
     color: bisque;
 }
 
-/* Parent divs */
+/* Parent div */
 .carry {
     flex: 1;
     flex-direction: column;
-    border: 1px solid #ccc;
     margin: 10px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-}
-
-.comp {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    box-sizing: border-box;
 }
 
 /* Child divs */
@@ -62,7 +53,7 @@ div {
     font-size: xx-large;
     color: rgb(144, 138, 131);
     background-color: #2e383e;
-    width: 160px;
+    width: 350px;
     height: 180px;
     margin: 0 auto;
     border-radius: 10px;
@@ -74,27 +65,21 @@ div {
     justify-content: center;
     background-color: #3f474e;
     height: 150px;
-    width: 300px;
+    width: 350px;
     border-radius: 10px;
-}
-
-.team {
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.team-champ {
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: gray;
-    color: beige;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    color: rgb(205, 195, 181);
 }
 
 #trait {
+    flex: 1;
     width: 100%;
     max-width: 600px;
     height: auto;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    color: rgb(205, 195, 181);
 }
