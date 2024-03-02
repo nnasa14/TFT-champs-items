@@ -15,7 +15,8 @@ let getChamp = () => {
             const champNames = Object.values(data.data);
             const randomIndex = Math.floor(Math.random() *champNames.length);
             const champ = champNames[randomIndex];
-            champContainer.innerHTML = `${champ.name}`;
+            const image = `https://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${champ.name}.png`;
+            champContainer.innerHTML = `${champ.name} <br> <img src="${image}">`;
         })
         .catch(error => console.error('Fetch error:', error));
 }
