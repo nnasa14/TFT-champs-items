@@ -38,9 +38,12 @@ div {
 /* Parent divs */
 .carry {
     flex: 1;
+    flex-direction: column;
     border: 1px solid #ccc;
     margin: 10px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 
 .comp {
@@ -53,26 +56,26 @@ div {
 
 /* Child divs */
 #champ {
+    flex: 2;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     color: rgb(144, 138, 131);
     background-color: #2e383e;
-    width: 20%;
+    width: 150px;
+    height: 200px;
     margin: 0 auto;
     border-radius: 10px;
-    padding: 0 10px;
 }
 
 #items-container {
-    justify-content: space-between;
-    width: 100%;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
     background-color: #3f474e;
-}
-
-.item {
-    max-width: 150px;
-    height: auto;
+    height: 150px;
+    width: 300px;
+    border-radius: 10px;
 }
 
 .team {

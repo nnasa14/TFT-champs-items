@@ -40,7 +40,7 @@ let getItem = () => {
             const randomIndex = Math.floor(Math.random() *items.length);
             const item = items[randomIndex]; 
             const imageName = justChars(item.name);
-            const image = `https://cdn.mobalytics.gg/assets/tft/images/game-items/set10/${imageName}.png?v=52`
+            const image = `https://cdn.metatft.com/file/metatft/items/tft_item_${imageName}.png`
             itemsContainer.innerHTML += `${item.name} <br> <img src="${image}">`;
         })
         .catch(error => console.error('Fetch error:', error));
@@ -65,6 +65,3 @@ button.addEventListener("click", function () {
     for (let i = 0; i < 3; i++) {
         getItem();}
     });
-getChamp();
-getTrait();
-getItem();
