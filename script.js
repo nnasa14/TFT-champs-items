@@ -7,7 +7,6 @@ const itemIdUrl = 'https://ddragon.leagueoflegends.com/cdn/14.4.1/data/en_US/ite
 /* HTML containers */
 const traitContainer = document.getElementById('trait');
 const champContainer = document.getElementById('champ');
-const itemsContainer = document.getElementById('items-container');
 
 const button = document.getElementById('button');
 
@@ -32,12 +31,12 @@ let getChamp = () => {
             const champ = champNames[randomIndex];
             const imageName = justChars(champ.name);
             const image = `https://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${imageName}.png`;
-            champContainer.innerHTML = `${champ.name} <img src="${image}">`;
+            champContainer.innerHTML = `<img src="${image}"> <br> ${champ.name}`;
         })
         .catch(error => console.error('Fetch error:', error));
 }
 
-let getItem = () => {
+let getItem = (itemId) => {
     fetch(itemUrl)
         .then(response => response.json())
         .then(data => {
@@ -50,8 +49,13 @@ let getItem = () => {
                 const randomIndex = Math.floor(Math.random() * items.length);
                 item = items[randomIndex];
             } while (!allowedItems.includes(item.name));
+
             const image = `${images}${item.name}.png`;
-            itemsContainer.innerHTML = `${item.name} <br> <img src="${image}">`;
+
+            const box = document.getElementById(itemId);
+            if (box) {
+                box.innerHTML = `<img src="${image}"> <br> ${item.name}`;
+            }
         })
         .catch(error => console.error('Fetch error:', error));
 } 
@@ -71,5 +75,13 @@ let getTrait = () => {
 button.addEventListener("click", function () {
     getChamp();
     getTrait();
-    getItem();
+    getItem("item1");
+    getItem("item2");
+    getItem("item3");
     });
+
+getChamp();
+getTrait();
+getItem("item1");
+getItem("item2");
+getItem("item3");

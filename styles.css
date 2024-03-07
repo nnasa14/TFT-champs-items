@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'LOL';
+    src: url('font/LOL.otf') format('opentype');
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'LOL', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,7 +40,6 @@ div {
     color: bisque;
 }
 
-/* Parent div */
 .carry {
     flex: 1;
     flex-direction: column;
@@ -45,18 +49,18 @@ div {
     align-items: center;
 }
 
-/* Child divs */
 #champ {
     flex: 2;
     text-align: center;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: 'LOL', sans-serif;
     font-size: xx-large;
     color: rgb(144, 138, 131);
     background-color: #2e383e;
     width: 350px;
     height: 180px;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0 ;
+    padding: 10px 0;
 }
 
 #items-container {
@@ -66,10 +70,10 @@ div {
     background-color: #3f474e;
     height: 150px;
     width: 350px;
-    border-radius: 10px;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: larger;
-    color: rgb(205, 195, 181);
+    border-radius: 0 0 10px 10px;
+    font-family: 'LOL';
+    font-size: large;
+    display: flex;
 }
 
 #trait {
@@ -79,7 +83,18 @@ div {
     height: auto;
     margin: 10px 0;
     text-align: center;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: 'LOL', sans-serif;
     font-size: larger;
     color: rgb(205, 195, 181);
+}
+
+.item {
+    flex: 1;
+    padding: 10px;
+    color: rgb(146, 144, 141);
+}
+
+.item > img {
+    width: 40px;
+    height: auto;
 }
