@@ -1,2 +1,2 @@
-# TFT-champs-items
-Database using Riot Games API to challenge users to try different team compositions in Teamfight Tactics
+# TFT-carry-generator
+Generator using Riot Games API that creates a TFT team comp carry with a full item build
